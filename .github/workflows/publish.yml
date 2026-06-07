@@ -38,6 +38,8 @@ jobs:
 
       - name: Publish to PyPI (Trusted Publishing)
         uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          skip_existing: true
 
       - name: Create GitHub release
         env:
