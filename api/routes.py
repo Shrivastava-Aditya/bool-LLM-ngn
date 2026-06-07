@@ -168,6 +168,15 @@ def _build_provider(provider: str, api_key: Optional[str], model: Optional[str],
 # Endpoints
 # ---------------------------------------------------------------------------
 
+@app.get("/llms.txt", response_class=Response)
+def llms_txt():
+    import pathlib
+    p = pathlib.Path(__file__).parents[1] / "llms.txt"
+    if not p.exists():
+        raise HTTPException(status_code=404, detail="llms.txt not found")
+    return Response(content=p.read_text(), media_type="text/plain")
+
+
 @app.get("/health")
 def health():
     redis_ok = _get_redis() is not None
