@@ -75,7 +75,7 @@ jobs:
           tags: |
             shrvx/bool-llm-ngn:${{ github.ref_name }}
             shrvx/bool-llm-ngn:latest
-            ghcr.io/shrivastava-aditya/bool-llm-ngn:${{ github.ref_name }}
-            ghcr.io/shrivastava-aditya/bool-llm-ngn:latest
+            ghcr.io/shrivastava-aditya/bool-llm-ngn-api:${{ github.ref_name }}
+            ghcr.io/shrivastava-aditya/bool-llm-ngn-api:latest
           labels: |
-            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.source=https://github.com/Shrivastava-Aditya/bool-LLM-ngn
