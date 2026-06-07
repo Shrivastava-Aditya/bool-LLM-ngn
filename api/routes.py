@@ -156,7 +156,7 @@ def _build_provider(provider: str, api_key: Optional[str], model: Optional[str],
     if provider == "openai":
         return OpenAIProvider(api_key=api_key, model=model or "gpt-4o")
     if provider == "ollama":
-        return OllamaProvider(model=model or "llama3", base_url=base_url or "http://localhost:11434")
+        return OllamaProvider(model=model or "deepseek-r1:latest", base_url=base_url or os.environ.get("OLLAMA_HOST", "http://localhost:11434"))
     if provider == "compat":
         if not base_url or not model:
             raise HTTPException(status_code=400, detail="base_url and model required for compat provider")
