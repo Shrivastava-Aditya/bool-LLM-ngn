@@ -37,8 +37,7 @@ The small models aren't reasoning at all — they picked a default and stuck to 
 Zero dependencies. Works immediately after install.
 
 ```python
-from core.evaluator import evaluate
-from core.synthesizer import synthesize
+from boolean_algebra_engine import evaluate, synthesize
 
 # Does a contradiction exist?
 table, _ = evaluate("A.!A")
@@ -65,7 +64,7 @@ print(minimal)             # A.C+A.B
 
 ```bash
 pip install boolean-algebra-engine
-python -c "from core.evaluator import evaluate; t,_ = evaluate('A.!A'); print(t.satisfiable)"
+python -c "from boolean_algebra_engine import evaluate; t,_ = evaluate('A.!A'); print(t.satisfiable)"
 ```
 
 ```
@@ -307,8 +306,7 @@ Per-case strips (bottom row of the chart): tinyllama and llama3.2:3b show unifor
 ## Core API
 
 ```python
-from core.evaluator import evaluate
-from core.synthesizer import synthesize
+from boolean_algebra_engine import evaluate, synthesize
 
 # Forward: expression → truth table
 table, _ = evaluate("A.(B+C)")
@@ -573,8 +571,6 @@ Full benchmark methodology and per-case results are [above](#the-benchmark).
 
 ### What changed in this release
 
-**Branch: `NL-Layer-Live`**
-
 | Change | Detail |
 |---|---|
 | Default model | `llama3` → `deepseek-r1:latest` (8b) |
@@ -611,7 +607,7 @@ Variables: uppercase `A`–`Z`. Parentheses override precedence. Up to 26 variab
 
 | Interface | How |
 |---|---|
-| **Python library** | `from core.evaluator import evaluate` — embed in any project |
+| **Python library** | `from boolean_algebra_engine import evaluate` — embed in any project |
 | **CLI / REPL** | `boolcalc "A.B+!A.C"` — instant truth table in terminal |
 | **MCP server** | Claude Desktop plugin — plug and play |
 | **REST API** | `POST /check-rules` — callable from any language or stack |
